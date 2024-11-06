@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Tema 1 - Algoritmica Grafurilor}
+
+\author{Mihail Popovici, Luca Petrovici, Alexandru-Constantin Iov, George-Razvan Rusu}
+\begin{document}
+\maketitle
+
+\section*{\fontsize{20}{50}\selectfont Problema 1}
+{\fontsize{14}{16}\selectfont  Un graf eulerian este un graf in care exista un parcurs inchis care trece prin toate muchiile sale. Deoarece graful G = (V,E) este conex si toate nodurile sale au gradul par, acesta este un graf eulerian. 
+\par O metoda de a inlocui fiecare muchie a lui G cu exact un arc astfel incat in noul digraf G prim fiecare nod sa aiba gradul interior egal cu cel exterior este de a trece prin parcurs. Prin schimbarea, inspre sensul de mers, a fiecarei muchii cu un arc, de fiecare data cand trecem printr-un nod, ii vom creste atat gradul interior cat si cel exterior cu 1. Singura exceptie este primul nod din parcurs, al carui grad exterior va fi incrementat cu 1 la inceputul parcurgerii, ramanand diferit de cel interior pana la finalizarea parcurgerii.}
+
+\section*{\fontsize{20}{50}\selectfont Problema 2}
+\subsection*{\fontsize{16}{30}\selectfont Subpunctul a)}
+{\fontsize{14}{16}\selectfont  Presupunem prin reducere la absurd ca xy apartine lui  \\ E $\backslash$ E prim si x nu este ascendent al lui y sau invers, deci rezulta ca x si y au un stramos comun in arborele generat de parcurgerea DFS. Daca x si y au stramos comun in arborele DFS inseamna ca parcurgerea a trecut prin x si a ramas fara noduri de explorat. Apoi, acesta s-a intors inapoi la stramosul comun si a continuat parcurgerea din acesta, urmand sa treaca prin y. Insa, pentru ca DFSul sa ajunga inapoi la stramosul comun, atunci ar trebui ca x sa nu mai aiba niciun vecin neexplorat, dar deoarece xy apartine lui E, algoritmul nu ar mai fi ajuns la acel stramos comun, plasandu-l pe y ca fiul lui x. Deoarece am ajuns la contradicitie, inseamna ca presupunerea este falsa, deci daca xy apartine lui E minus E prim, x este un ascendent al lui y sau invers. }
+\subsection*{\fontsize{16}{30}\selectfont Subpunctul b)}
+{\fontsize{14}{16}\selectfont
+Presupunem prin reducere la absurd ca exista u a.i. upd(u) > level(u). Asa cum am demonstrat la subpunctul a, daca 2 noduri sunt vecine in graful initial, atunci unul dintre ele va fi stramosul celuilalt, adica va avea nivelul mai mic ca celalalt. In cel mai rau caz, upd(u) va fi format din toti stramosii lui u, adica uv apartine luii E minus E prim, oricare ar fi v din ng(u). In acest caz, upd(u) va fi egal cu level(u), ceea ce inseamna ca upd(u) nu poate fi mai mare decat level(u), deci presupunerea este eronata. Rezulta ca upd(u)<=level(u), pt orice u din V. }
+\subsection*{\fontsize{16}{30}\selectfont Subpunctul c)}
+{\fontsize{14}{16}\selectfont
+Oricare ar fi muchia xy apartine lui E, aceasta va contribui fie la upd(x), fie la upd(y). Muchia nu poate contribui la ambele in acelasi timp, deoarece ar implica level(x)<level(y) si level(y)<level(x) simultan, ceea ce nu este posibil. In acelasi timp, muchia xy nu poate sa nu incrementeze niciun upd(), deoarece ar trebui ca level(x)<level(y) si level(y)<level(x) sa fie false in acelasi timp, deci, level(x)>=level(y) si level(y)>=level(x) in acelasi timp, adica level(x)=level(y), ceea ce este imposibil deoarece muchia xy apartine lui E, rezulta fie x este stramosul lui y, fie y este stramosul lui x (subpunctul a). Asadar, fiecare muchie contribuie la suma de upd() cu 1, adica in final suma de upd() = m.
+}
+\subsection*{\fontsize{16}{30}\selectfont Subpunctul d)}
+{\fontsize{14}{16}\selectfont
+Asa cum am demonstrat la b, upd(u)<=level(u), oricare ar fi u din V. Insumand inegalitatea pentru fiecare u, vom obtine ca suma de upd(u) <= suma de level(u), u apartine lui V. Conform subpunctului c, suma de upd(u)=m => m <= suma de levele, care la randul sau este <= decat n*level(x), unde x este nodul cu cel mai mare level, adica nodul care da adancimea arborelui DFS. <=> m/n <= level(x), de unde rezulta ca adancimea lui T este cel putin m/n; 
+}
+\subsection*{\fontsize{16}{30}\selectfont Subpunctul e)}
+Insert contra exemplu aici, cel de pe foaie. 
+Deoarece [multimea de la E] nu contine toate circuitele din G, atunci nu vom fi niciodata siguri ca circuitul de lungime minima se poate afla prin traversarea dfs a lui G.  
+\end{document}
