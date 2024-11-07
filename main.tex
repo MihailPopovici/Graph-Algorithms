@@ -136,4 +136,13 @@ Functia $Search()$ verifică fiecare arc din cozi. În cel mai rău caz, va veri
 {\fontsize{14}{16}\selectfont
 \par Dacă oricare două noduri din $V_{u,1}$ sunt adiacente, se formează un circuit de lungime 3, deoarece $u$ este adiacent cu fiecare dintre nodurile din $V_{u,1}$, inclusiv cele două. Acest lucru nu este posibil deoarece $G$ și $G'$ nu conțin circuite de lungime $\le 4$.}
 
+\subsection*{\fontsize{16}{30}\selectfont Subpunctul c}
+{\fontsize{14}{16}\selectfont
+\par În urma rulării algoritmului, vom obține un graf $G'$ care va avea $n'$ noduri și $m'$ muchii $(n' \le n, m' \le m)$. Așadar, \\
+\\ \centerline {$\sum_{u \in G'} {d}_{G'}(u) \ge n' \cdot \frac{m}{n} \Leftrightarrow$}
+\\ \centerline {$2 \cdot m' \ge n' \cdot \frac{m}{n} \Leftrightarrow$}
+\\ \centerline {$m \le 2 \cdot n \cdot \frac{m'}{n'}$}
+Deci, $m = O(n \cdot \frac{m'}{n'})$
+}
+
 \end{document}
