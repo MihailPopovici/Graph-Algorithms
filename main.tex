@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{graphicx} % Required for inserting images
+\usepackage{indentfirst}
 
 % Set page size and margins
 % Replace `letterpaper' with `a4paper' for UK/EU standard size
@@ -129,13 +130,13 @@ In final, complexitatea algoritmului va fi  \\ \centerline {O(p) + O(n) * O (m) 
 
 \subsection*{\fontsize{16}{30}\selectfont Subpunctul a}
 {\fontsize{14}{16}\selectfont
-$G'$ este obținut prin eliminarea de muchii din $G$, pe baza unei condiții descrise în algoritmul dat, iar $G$ nu are circuite de lungime $\le 4$. Așadar, $G'$ nu poate avea nici el circuite de lungime $\le 4$ întrucât eliminarea de muchii nu poate genera circuite, ci poate doar menține sau micșora numărul de circuite din acel graf.}
+\par $G'$ este obținut prin eliminarea de muchii din $G$, pe baza unei condiții descrise în algoritmul dat, iar $G$ nu are circuite de lungime $\le 4$. Așadar, $G'$ nu poate avea nici el circuite de lungime $\le 4$ întrucât eliminarea de muchii nu poate genera circuite, ci poate doar menține sau micșora numărul de circuite din acel graf.}
 
 \subsection*{\fontsize{16}{30}\selectfont Subpunctul b}
 {\fontsize{14}{16}\selectfont
-Presupunem prin reducere la absurd că $V_{u,1} \cap V_{u,2} \neq \emptyset$. Înseamna că $\exists x$ astfel încât $x \in V_{u,1}$ și $x \in V_{u,2}$. Pentru că $x \in V_{u,2}$, trebuie să existe $v \in V_{u,1}, v \ne x$ astfel încât $v$ și $x$ să fie adiacente. Dar pentru că $x,v \in V_{u,1}$, înseamnă că $u$ este adiacent cu $x$ și $v$. Astfel, se formează un circuit de lungime 3 ($u \rightarrow v \rightarrow x$), ceea ce contrazice faptul că $G'$ nu conține circuite de lungime $\le 4$. Deci, $V_{u,1} \cap V_{u,2} = \emptyset$.}
-\\
+\par Presupunem prin reducere la absurd că $V_{u,1} \cap V_{u,2} \neq \emptyset$. Înseamna că $\exists x$ astfel încât $x \in V_{u,1}$ și $x \in V_{u,2}$. Pentru că $x \in V_{u,2}$, trebuie să existe $v \in V_{u,1}, v \ne x$ astfel încât $v$ și $x$ să fie adiacente. Dar pentru că $x,v \in V_{u,1}$, înseamnă că $u$ este adiacent cu $x$ și $v$. Astfel, se formează un circuit de lungime 3 ($u \rightarrow v \rightarrow x$), ceea ce contrazice faptul că $G'$ nu conține circuite de lungime $\le 4$. Deci, $V_{u,1} \cap V_{u,2} = \emptyset$.}
+
 {\fontsize{14}{16}\selectfont
-Dacă oricare două noduri din $V_{u,1}$ sunt adiacente, se formează un circuit de lungime 3, deoarece $u$ este adiacent cu fiecare dintre nodurile din $V_{u,1}$, inclusiv cele două. Acest lucru nu este posibil deoarece $G$ și $G'$ nu conțin circuite de lungime $\le 4$.}
+\par Dacă oricare două noduri din $V_{u,1}$ sunt adiacente, se formează un circuit de lungime 3, deoarece $u$ este adiacent cu fiecare dintre nodurile din $V_{u,1}$, inclusiv cele două. Acest lucru nu este posibil deoarece $G$ și $G'$ nu conțin circuite de lungime $\le 4$.}
 
 \end{document}
