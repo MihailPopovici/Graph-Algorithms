@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{graphicx} % Required for inserting images
+\graphicspath{{images/}}
 
 \title{Tema 1 - Algoritmica Grafurilor}
 
@@ -44,10 +45,28 @@ Asa cum am demonstrat la b, upd(u) $\le$ level(u), \\ $\forall$ u $\in$ V. Insum
 }
 
 \subsection*{\fontsize{16}{30}\selectfont Subpunctul e}
+
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/graph_cropped.png}
+        \caption{Un graf G}
+        \label{fig:graf}
+    \end{minipage}\hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/DFS_tree_cropped.png}
+        \caption{Arborele traversării DFS, pornind din nodul 1}
+        \label{fig:arbore}
+    \end{minipage}
+\end{figure}
+
 {\fontsize{14}{16}\selectfont
-Insert contra exemplu aici, cel de pe foaie. 
-Deoarece \\ $\lbrace$ $C_{xy}$ : xy $\in$ E $\backslash$ E' $\rbrace$ nu contine toate circuitele din G, atunci nu vom fi niciodata siguri ca circuitul de lungime minima se poate afla prin prelucrarea unei traversari DFS a lui G.  
+
+Fie G, graful din figura \ref{fig:graf} si T, arborele din figura \ref{fig:arbore}. Pentru a forma in arborele T circuitul 1-2-5-1 din G, ar trebui sa introducem atat muchia 1-5, cat si 2-5. Insa, conform enuntului, $C_{xy}$ reprezinta arborele T, la care se adauga o singura muchie din G. Astfel, am gasit un contraexemplu in care nu putem forma toate circuitele din G adaugand doar cate o muchie, rezultand ca afirmatia este falsa. In plus, deoarece $\lbrace$ $C_{xy}$ : xy $\in$ E $\backslash$ E' $\rbrace$ nu conține toate circuitele din $G$, atunci nu vom fi niciodată siguri că circuitul de lungime minimă se poate afla prin prelucrarea unei traversări DFS a lui $G$.
 }
+
 
 \section*{\fontsize{20}{50}\selectfont Problema 3}
 \subsection*{\fontsize{16}{30}\selectfont Subpunctul a}
@@ -69,6 +88,8 @@ Este evident ca algoritmul va plasa nodurile in S in ordinea crescatoare a costu
 \subsubsection*{\fontsize{14}{20}\selectfont Subpunctul a2}
 {\fontsize{14}{16}\selectfont
 
+Deoarece algoritmul adauga arce in $L_h$ pe masura ce exploreaza nodurile, iar nodurile sunt alese in ordine crescatoare a costurilor $u_i$, daca $u_i$< $u_j$ atunci algoritmul a explorat nodul i inainte de nodul j si, implicit, a adaugat arcele ce ies din i (printre care si ij) inaintea celor care ies din i' (printre care si i'j'). Astfel, daca doua arce ij si i'j' apartin aceleiasi cozi si $u_i$< $u_j$, ij apare inaintea lui i'j' in $L_h$.
+
 }
 
 \subsubsection*{\fontsize{14}{20}\selectfont Subpunctul a3}
@@ -82,6 +103,13 @@ $\lbrace$ j $\notin$ S $\rbrace$ : Inainte de apelarea functiei Search(), condit
 $a_{ij}$ = $\gamma_h$ : Aceasta conditie este permanent indeplinita pentru ca, inainte de a adauga un arc in coada este verificata.
 
 Astfel, deoarece toate cele 3 conditii sunt indeplinite, putem spune ca $\lbrace$ ij : i $\in$ S, j $\notin$ S, $a_{ij}$ = $\gamma_h$ $\rbrace$ $\subseteq$ $L_h$ inainte si dupa fiecare iteratie a buclei while.
+
+}
+
+\subsubsection*{\fontsize{14}{20}\selectfont Subpunctul a4}
+{\fontsize{14}{16}\selectfont
+
+La început, cozile $L_h$ sunt inițializate cu valori nule și se adaugă doar muchiile vecine nodului de start. Este important de observat că în această fază doar nodul de start se află în mulțimea S a nodurilor vizitate. După intrarea în bucla while, variabila ij* primește rezultatul funcției Search(), care caută în toate muchiile din $L_h$ și returnează muchia xy aferenta drumului cu cost minim, unde x$\in$S și y$\notin$S. Abia după ce ij* este selectat, nodul j* este adăugat în S, iar muchiile incidente cu acesta sunt adăugate în $L_h$, fără ca celelalte capete ale acestor muchii să fie incluse în S. Deci, oricum am alege muchia ij*, aceasta va reprezenta drumul cu cel mai mic cost dintre toate celelalte drumuri pe care le putem forma cu muchiile din cozi.
 
 }
 
