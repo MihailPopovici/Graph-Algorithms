@@ -12,4 +12,50 @@
 \begin{document}
 \maketitle
 
+\section*{\fontsize{20}{50}\selectfont Problema 2}
+\subsection*{\fontsize{16}{30}\selectfont Subpunctul a}
+{\fontsize{14}{16}\selectfont 
+    Pentru a determina un arbore partial de cost maxim in $G$ vom folosi o variatie a algoritmului lui Kruskal. Astfel, in loc de a sorta muchiile in ordine crescatoare a costurilor, le vom ordona in mod descrescator.
+    \\ 
+    \par sort $E=\lbrace e_1, e_2, ..., e_m \rbrace$ $//$ $a.i.$  $c(e_1)\geq c(e_2)...\geq c(e_m)$
+
+    \par $T \leftarrow \emptyset; i \leftarrow 1;$
+    \par $while(i \leq m) do$
+    \par \hspace*{1cm} $if(\langle T \cup \lbrace e_i \rbrace \rangle _G$ nu are circuite $)$  $then$
+    \par \hspace*{1.5cm} $ T \leftarrow T \cup \lbrace e_i \rbrace ;$
+    \par \hspace*{1cm} $i++;$
+    }
+
+\subsection*{\fontsize{16}{30}\selectfont Subpunctul b}
+{\fontsize{14}{16}\selectfont 
+$\mathbf{Implicatia}$ $\mathbf{directa:}$ DRAFT
+\\
+\par $T$ este un arbore partial al lui $G$, deci $T$ conecteaza toate nodurile din $G$ si este un subgraf al lui $G$. Prin definitie $(c(e)\geq \alpha)$, orice muchie din $T_\alpha$ este inclusa in $G_\alpha$. Deoarece $T_\alpha$ este subarbore al lui $T$ si $G_\alpha$ este subgraf al lui $G$, toate conexiunile intre nodurile din $T_\alpha$ sunt valabile si in $G_\alpha$.         
+\\
+\par $\mathbf{Implicatia}$ $\mathbf{inversa:}$
+\\
+}    
+
+\subsection*{\fontsize{16}{30}\selectfont Subpunctul c}
+{\fontsize{14}{16}\selectfont Initial vom folosi algoritmul lui Kruskal modificat de la subpunctul a$)$ pentru a construi arborele partial de cost maxim din $G$.}
+
+\section*{\fontsize{20}{50}\selectfont Problema 3}
+\subsection*{\fontsize{16}{30}\selectfont Subpunctul a}
+{\fontsize{14}{16}\selectfont 
+
+\centerline {$ c(T|e) = \sum_{ e'\in E(T)\setminus \lbrace e \rbrace } c(e') = \sum_{ e'\in E(T) } c(e') - c(e) = c(T) - c(e)$ }
+}
+
+\subsection*{\fontsize{16}{30}\selectfont Subpunctul b}
+{\fontsize{14}{16}\selectfont 
+    Fie $T$ un arbore partial de cost minim al lui $G$, avand costul minim $c(T)$. Conform subpuctului $a$, prin contractarea muchiei e, obtinem $c(T|e) = c(T) - c(e)$.
+    Sa presupunem prin reducere la absurd ca $T|e$ $\mathbf{N} \mathbf{U}$ este un arbore partial de cost minim al lui $G|e$. Atunci ar exista un alt arbore partial $T'|e$ a lui $G|e$, cu $c(T'|e) < c(T|e)$.
+    \par Daca $T'|e$ este un arbore de cost mai mic n $G|e$, atunci putem extinde acest arbore n $G$ adaugand inapoi muchia $e$ pentru a obtine un arbore $T'$ al lui $G$. Costul acestui arbore $T'$ ar fi:
+    \par \centerline { $c(T') = c(T'|e) + c(e)$ }
+    \par Deoarece $c(T'|e) < c(T|e)$, rezulta ca:
+    \par \centerline {$c(T'|e) < c(T|e) + c(e) = c(T) $}
+    \par Aceasta contrazice ipoteza ca $T$ este un arbore partial de cost minm al lui $G$. Prin urmare, $T|e$ trebuie sa fie un arbore partial de cost minim al lui $G|e$.
+    }
+
 \end{document}
+    \centerline {$ c(T|e) = \sum_{ e'\in E(T)\setminus \lbrace e \rbrace } c(e') = \sum_{ e'\in E(T) } c(e') - c(e) = c(T) - c(e)$ }
