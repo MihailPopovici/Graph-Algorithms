@@ -12,6 +12,57 @@
 \begin{document}
 \maketitle
 
+\section*{\fontsize{20}{50}\selectfont Problema 1}
+\subsection*{\fontsize{16}{30}\selectfont Subpunctul a}
+{\fontsize{14}{16}\selectfont 
+$\mathbf{Implicatia}$ $\mathbf{directa: (=>)}$ 
+\\
+\par Ipoteza : $F^*$ este o acoperire minimala (relativ la incluziune) de cardinal minim.
+\par Concluzie : $\exists$ $M^*$ cuplaj de cardinal maxim, a.i. $M^*$ $\subseteq$ $F^*$ 
+\\
+
+Înainte de a începe demonstrația, trebuie enunțată Teorema Norman-Rabin: Fie G un graf de ordin n, fară noduri izolate. Dacă $M^*$ este un cuplaj de cardinal maxim în G și $F^*$ este o acoperire cu muchii minimă a lui G, atunci:
+\par \centerline{$\vert$$M^*$$\vert$ + $\vert$$F^*$$\vert$ = n}
+Unde n este numărul de noduri al grafului G.
+
+Din teoremă reiese că $\vert$$M^*$$\vert$ = n - $\vert$$F^*$$\vert$, deci pentru a avea un cuplaj de cardinal cât mai mare, trebuie să avem o acoperire cu cardinalul cât mai mic. Astfel, cele două concepte sunt în strânsă legătură.
+
+
+\par $M^*$ unește cât mai multe noduri printr-un număr minim de muchii și nu există în graf nici un alt cuplaj care să facă acest lucru într-un mod mai eficient. $F^*$ minimal și de cardinal minim va fi obținut din $M^*$ prin legarea nodurilor din mulțimea E($M^*$) cu nodurile din mulțimea S($M^*$) prin câte o muchie fiecare. Astfel, dacă $F^*$ este minimală și de cardinal minim, $\exists$ $M^*$ cuplaj de cardinal maxim, a.i. $M^*$ $\subseteq$ $F^*$ . 
+\par
+$\mathbf{Implicatia}$ $\mathbf{inversa: (<=)}$ 
+\\
+\par Ipoteza : $\exists$ $M^*$ cuplaj de cardinal maxim, a.i. $M^*$ $\subseteq$ $S^*$ 
+\par Concluzie : $S^*$ este o acoperire minimală (relativ la incluziune) de cardinal minim.      
+\\
+
+Dacă $F^*$ este minimal, înseamnă că $F^*$ - $\lbrace$e$\rbrace$ nu mai este acoperire, $\forall$ e $\in$ E(G). 
+
+Presupunem prin reducere la absurd că $F^*$ este minimal și $\exists$ $M^*$ cuplaj de cardinal maxim, a.i. $M^*$ $\subseteq$ $F^*$, dar $F^*$ nu este de cardinal minim $\Rightarrow$ $\exists$ $F^{'}$ a.i. $\vert$$F^{'}$$\vert$ $<$ $\vert$$F^*$$\vert$. Însă, la implicația directă am demonstrat că dacă $F^{'}$ este minimal și de cardinal minim, atunci $M^*$ $\subset$ $F^{'}$. Dar $M^*$ $\subset$ $F^*$ și $F^*$ minimal, $\vert$$F^{'}$$\vert$ $<$ $\vert$$F^*$$\vert$ $\Rightarrow$ imposibil, deoarece $F^*$ $\setminus$ $\lbrace$e$\rbrace$  nu mai este acoperire $\Rightarrow$ Dacă $\exists$ $M^*$ cuplaj de cardinal maxim, a.i. $M^*$ $\subseteq$ $S^*$ atunci $S^*$ este o acoperire minimală (relativ la incluziune) de cardinal minim.  
+
+
+\subsection*{\fontsize{16}{30}\selectfont Subpunctul b}
+{\fontsize{14}{16}\selectfont 
+$\mathbf{Implicatia}$ $\mathbf{directa: (=>)}$ 
+\\
+\par Ipoteză : Un cuplaj maximal $M^*$ este de cardinal maxim
+\par Concluzie : $\exists$ $F^*$ acoperire cu muchii de cardinal minim, a.i. \\ $M^*$ $\subseteq$ $F^*$ 
+\\
+
+
+
+Demonstrația acestei implicații este similară cu demonstrația implicației directe la subpunctul a). $F^*$ se asigură că toate nodurile au gradul cel puțin 1, utilizand un număr minimal de muchii. Cuplajul $M^*$ poate fi obținut din acoperirea $F^*$ prin ștergerea muchiilor adiacente cu noduri cu gradul > 1, obtinandu-se în final cuplajul de cardinal maxim și maximal $M^*$. În concluzie, dacă $M^*$ este un cuplaj maximal de cardinal maxim, atunci $\exists$ $F^*$ acoperire cu muchii de cardinal minim, a.i. $M^*$ $\subseteq$ $F^*$. \\
+
+$\mathbf{Implicatia}$ $\mathbf{inversa: (<=)}$ 
+\\
+\par Ipoteză : $\exists$ $F^*$ acoperire cu muchii de cardinal minim, a.i. \\ $M^*$ $\subseteq$ $F^*$ 
+\par Concluzie : Un cuplaj maximal $M^*$ este de cardinal maxim
+\\
+
+Dacă $M^*$ este maximal, înseamnă că $M^*$ + $\lbrace$e$\rbrace$ nu mai este cuplaj, $\forall$ e $\in$ E(G). 
+
+Presupunem prin reducere la absurd că $M^*$ este maximal și $\exists$ $F^*$ acoperire cu muchii de cardinal minim, a.i.  $M^*$ $\subseteq$ $F^*$, dar $M^*$ nu este de cardinal maxim. Însă, la "=$>$" am demonstrat că dacă $M^{'}$ este de cadinal maxim, atunci $M^{'}$ $\subset$ $F^*$. Dar $M^*$ $\subset$ $F^*$, $M^*$ maximal și $\vert$$M^{'}$$\vert$ $>$ $\vert$$M^*$$\vert$ $\Rightarrow$ imposibil, deoarece $M^*$ + $\lbrace$e$\rbrace$ nu mai este cuplaj $\Rightarrow$ contradicție, deci daca $\exists$ $F^*$ acoperire cu muchii de cardinal minim, a.i.  $M^*$ $\subseteq$ $F^*$ atunci un cuplaj maximal $M^*$ este de cardinal maxim.
+
 \section*{\fontsize{20}{50}\selectfont Problema 2}
 \subsection*{\fontsize{16}{30}\selectfont Subpunctul a}
 {\fontsize{14}{16}\selectfont 
