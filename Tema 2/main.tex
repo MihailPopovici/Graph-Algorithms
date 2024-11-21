@@ -20,24 +20,72 @@
     \par sort $E=\lbrace e_1, e_2, ..., e_m \rbrace$ $//$ $a.i.$  $c(e_1)\geq c(e_2)...\geq c(e_m)$
 
     \par $T \leftarrow \emptyset; i \leftarrow 1;$
-    \par $while(i \leq m) do$
-    \par \hspace*{1cm} $if(\langle T \cup \lbrace e_i \rbrace \rangle _G$ nu are circuite $)$  $then$
+    \par $while$  $(i \leq m)$  $do$
+    \par \hspace*{1cm} $if$ $(\langle T \cup \lbrace e_i \rbrace \rangle _G$ nu are circuite $)$  $then$
     \par \hspace*{1.5cm} $ T \leftarrow T \cup \lbrace e_i \rbrace ;$
     \par \hspace*{1cm} $i++;$
     }
 
 \subsection*{\fontsize{16}{30}\selectfont Subpunctul b}
 {\fontsize{14}{16}\selectfont 
-$\mathbf{Implicatia}$ $\mathbf{directa:}$ DRAFT
+$\mathbf{Implicatia}$ $\mathbf{directa:}$ 
 \\
-\par $T$ este un arbore partial al lui $G$, deci $T$ conecteaza toate nodurile din $G$ si este un subgraf al lui $G$. Prin definitie $(c(e)\geq \alpha)$, orice muchie din $T_\alpha$ este inclusa in $G_\alpha$. Deoarece $T_\alpha$ este subarbore al lui $T$ si $G_\alpha$ este subgraf al lui $G$, toate conexiunile intre nodurile din $T_\alpha$ sunt valabile si in $G_\alpha$.         
+\par Ipoteza : $x$ si $y$ sunt conectate in $G_\alpha$
+\par Concluzie : $x$ si $y$ sunt conectate in $T_\alpha$         
+\\
+\par Din ipoteza, $x$ si $y$ sunt conectate in $G_\alpha$. Deci exista un drum $P_{xy}$ intre $x$ si $y$ in $G_\alpha$, format din muchii $e_1$, $e_2$, ..., $e_k$, unde $c(e_i) \geq \alpha$ pentru fiecare muchie.
+Prin definitie, $T$ este conex si contine un set de muchii care asigura conectivitatea nodurilor din $G$, dar selecteaza numai muchii de cost maxim in sensul construirii arborelui. In procesul de construire al lui $T$, orice muchie care nu este inclusa in $T$ fie:
+\par 1) Nu este necesara pentru conectivitate, adica exista alte muchii care asigura legatura intre componentele respective
+\par 2) Este inlocuita cu o muchie de cost mai mare sau egal, deoarece $T$ maximizeaza costul muchiilor incluse. 
+\par Astfel, pentru orice muchie $e_i$ din drumul $P_{xy}$ din $G_\alpha$, daca $e_i$ nu se afla in $T$, trebuie sa existe in $T$ un drum alternativ care conecteaza aceleasi componente si care utilizeaza doar muchii de cost $\geq \alpha$.
+\par Deoarece $P_{xy}$ este format exclusiv din muchii cu cost $\geq \alpha$, drumul dintre $x$ si $y$ in $G_\alpha$ este reprodus in $T_\alpha$, intrucat $T_\alpha$ contine suficiente muchii pentru a conserva conectivitatea nodurilor din $T$. 
+\par In concluzie, daca $x$ si $y$ fac parte din aceeasi componenta conexa in $G_\alpha$, atunci apartin aceleiasi componente conexe in $T_\alpha$.    
 \\
 \par $\mathbf{Implicatia}$ $\mathbf{inversa:}$
+\\
+\par Ipoteza : $x$ si $y$ sunt conectate in $T_\alpha$
+\par Concluzie : $x$ si $y$ sunt conectate in $G_\alpha$
+\\
+\par $T$ este un arbore partial al lui $G$, deci $T$ conecteaza toate nodurile din $G$ si este un subgraf al lui $G$. Fiindca $T_\alpha$ pastreaza doar muchiile din $T$ cu $c(e)\geq \alpha$, iar $G_\alpha$ contine toate muchiile cu aceasta proprietate, toate muchiile din $T_\alpha$ sunt incluse si in $G_\alpha$. Deoarece $T_\alpha$ este subarbore al lui $T$ si $G_\alpha$ este subgraf al lui $G$, toate conexiunile intre nodurile din $T_\alpha$ sunt valabile si in $G_\alpha$.
 \\
 }    
 
 \subsection*{\fontsize{16}{30}\selectfont Subpunctul c}
-{\fontsize{14}{16}\selectfont Initial vom folosi algoritmul lui Kruskal modificat de la subpunctul a$)$ pentru a construi arborele partial de cost maxim din $G$.}
+{\fontsize{14}{16}\selectfont Initial vom folosi algoritmul lui Kruskal modificat de la subpunctul a$)$ pentru a construi arborele partial de cost maxim, $T$, din $G$, urmand sa parcurgem drumul de la $s$ la $t$ astfel:
+    \\
+    \par $vec \leftarrow \emptyset;$ 
+    \par $for$  $((u,v)\in T)$ $do$
+    \par \hspace*{1cm} //$construim$  $listele$  $de$  $adiacenta$
+    \par \hspace*{1cm} $add$  $u$  $to$  $vec[v];$
+    \par \hspace*{1cm} $add$  $v$  $to$  $vec[u];$
+    \\
+    \par //$definim$  $functia$  $DFS$
+    \par $method$ $DFS(current\_ node, last\_node, target, path):$
+    \par \hspace*{1cm} $if$ $(current\_node == target)$ $then$
+    \par \hspace*{1.5cm} $return$  $true;$
+    \par \hspace*{1cm}$for$  $(v \in vec[current\_node])$  $do$
+    \par \hspace*{1.5cm} $if$ $(v != last\_node)$  $then$
+    \par \hspace*{2cm} $path \leftarrow path \cup (current\_node, v)$
+    \par \hspace*{2cm} $if$  $(DFS(v, current\_node, target, path) == true)$ $then$
+    \par \hspace*{2.5cm} $return$ $true;$ 
+    \par \hspace*{2cm} $else$
+    \par \hspace*{2.5cm} $path \leftarrow path$ $\setminus$ $(current\_node, v)$
+    \par \hspace*{1cm} $return$ $false;$
+    \\
+    \par $path \leftarrow \emptyset;$
+    \par $DFS(s, NONE, t, path);$
+    \\
+    \par //$parcurgem$ $muchiile$ $din$ $path$ $si$ 
+    \par //$o$ $alegem$ $pe$ $cea$ $cu$ $costul$ $cel$ $mai$ $mic$
+    \par $min \leftarrow \infty$
+    \par $for$  $(e\in path)$ $do$
+    \par \hspace*{1cm} $if$ $(c(e)<min)$ $then$
+    \par \hspace*{1.5cm} $min \leftarrow c(e)$
+    \par //astfel, cantitatea maxima dintr-un produs care poate
+    \par //fi transportat de la s la t se gaseste in 
+    \par //variabila min 
+
+}
 
 \section*{\fontsize{20}{50}\selectfont Problema 3}
 \subsection*{\fontsize{16}{30}\selectfont Subpunctul a}
@@ -58,4 +106,3 @@ $\mathbf{Implicatia}$ $\mathbf{directa:}$ DRAFT
     }
 
 \end{document}
-    \centerline {$ c(T|e) = \sum_{ e'\in E(T)\setminus \lbrace e \rbrace } c(e') = \sum_{ e'\in E(T) } c(e') - c(e) = c(T) - c(e)$ }
