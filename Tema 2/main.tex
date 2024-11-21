@@ -63,10 +63,10 @@ Dacă $M^*$ este maximal, înseamnă că $M^*$ + $\lbrace$e$\rbrace$ nu mai este
 
 Presupunem prin reducere la absurd că $M^*$ este maximal și $\exists$ $F^*$ acoperire cu muchii de cardinal minim, a.i.  $M^*$ $\subseteq$ $F^*$, dar $M^*$ nu este de cardinal maxim. Însă, la "=$>$" am demonstrat că dacă $M^{'}$ este de cadinal maxim, atunci $M^{'}$ $\subset$ $F^*$. Dar $M^*$ $\subset$ $F^*$, $M^*$ maximal și $\vert$$M^{'}$$\vert$ $>$ $\vert$$M^*$$\vert$ $\Rightarrow$ imposibil, deoarece $M^*$ + $\lbrace$e$\rbrace$ nu mai este cuplaj $\Rightarrow$ contradicție, deci daca $\exists$ $F^*$ acoperire cu muchii de cardinal minim, a.i.  $M^*$ $\subseteq$ $F^*$ atunci un cuplaj maximal $M^*$ este de cardinal maxim.
 
-\section*{\fontsize{20}{50}\selectfont Problema 2 : Popovici Mihail}
+\section*{\fontsize{20}{50}\selectfont Problema 2 : Rusu Răzvan}
 \subsection*{\fontsize{16}{30}\selectfont Subpunctul a}
 {\fontsize{14}{16}\selectfont 
-    Pentru a determina un arbore partial de cost maxim in $G$ vom folosi o variatie a algoritmului lui Kruskal. Astfel, in loc de a sorta muchiile in ordine crescatoare a costurilor, le vom ordona in mod descrescator.
+Pentru a determina un arbore parțial de cost maxim în $G$ vom folosi o variație a algoritmului lui Kruskal. Astfel, în loc de a sorta muchiile în ordine crescătoare a costurilor, le vom ordona în mod descrescător.
     \\ 
     \par sort $E=\lbrace e_1, e_2, ..., e_m \rbrace$ $//$ $a.i.$  $c(e_1)\geq c(e_2)...\geq c(e_m)$
 
@@ -81,28 +81,28 @@ Presupunem prin reducere la absurd că $M^*$ este maximal și $\exists$ $F^*$ ac
 {\fontsize{14}{16}\selectfont 
 $\mathbf{Implicatia}$ $\mathbf{directa:}$ 
 \\
-\par Ipoteza : $x$ si $y$ sunt conectate in $G_\alpha$
-\par Concluzie : $x$ si $y$ sunt conectate in $T_\alpha$         
+\par Ipoteza : $x$ și $y$ sunt conectate în $G_\alpha$
+\par Concluzie : $x$ și $y$ sunt conectate în $T_\alpha$         
 \\
-\par Din ipoteza, $x$ si $y$ sunt conectate in $G_\alpha$. Deci exista un drum $P_{xy}$ intre $x$ si $y$ in $G_\alpha$, format din muchii $e_1$, $e_2$, ..., $e_k$, unde $c(e_i) \geq \alpha$ pentru fiecare muchie.
-Prin definitie, $T$ este conex si contine un set de muchii care asigura conectivitatea nodurilor din $G$, dar selecteaza numai muchii de cost maxim in sensul construirii arborelui. In procesul de construire al lui $T$, orice muchie care nu este inclusa in $T$ fie:
-\par 1) Nu este necesara pentru conectivitate, adica exista alte muchii care asigura legatura intre componentele respective
-\par 2) Este inlocuita cu o muchie de cost mai mare sau egal, deoarece $T$ maximizeaza costul muchiilor incluse. 
-\par Astfel, pentru orice muchie $e_i$ din drumul $P_{xy}$ din $G_\alpha$, daca $e_i$ nu se afla in $T$, trebuie sa existe in $T$ un drum alternativ care conecteaza aceleasi componente si care utilizeaza doar muchii de cost $\geq \alpha$.
-\par Deoarece $P_{xy}$ este format exclusiv din muchii cu cost $\geq \alpha$, drumul dintre $x$ si $y$ in $G_\alpha$ este reprodus in $T_\alpha$, intrucat $T_\alpha$ contine suficiente muchii pentru a conserva conectivitatea nodurilor din $T$. 
-\par In concluzie, daca $x$ si $y$ fac parte din aceeasi componenta conexa in $G_\alpha$, atunci apartin aceleiasi componente conexe in $T_\alpha$.    
+\par Din ipoteză, $x$ și $y$ sunt conectate în $G_\alpha$. Deci există un drum $P_{xy}$ între $x$ și $y$ în $G_\alpha$, format din muchii $e_1$, $e_2$, ..., $e_k$, unde $c(e_i) \geq \alpha$ pentru fiecare muchie.
+Prin definiție, $T$ este conex și conține un set de muchii care asigură conectivitatea nodurilor din $G$, dar selectează numai muchii de cost maxim în sensul construirii arborelui. În procesul de construire al lui $T$, orice muchie care nu este inclusă în $T$ fie:
+\par 1) Nu este necesară pentru conectivitate, adică există alte muchii care asigură legătură între componentele respective
+\par 2) Este înlocuită cu o muchie de cost mai mare sau egal, deoarece $T$ maximizează costul muchiilor incluse. 
+\par Astfel, pentru orice muchie $e_i$ din drumul $P_{xy}$ din $G_\alpha$, dacă $e_i$ nu se află în $T$, trebuie să existe în $T$ un drum alternativ care conectează aceleași componente și care utilizează doar muchii de cost $\geq \alpha$.
+\par Deoarece $P_{xy}$ este format exclusiv din muchii cu cost $\geq \alpha$, drumul dintre $x$ și $y$ în $G_\alpha$ este reprodus în $T_\alpha$, întrucât $T_\alpha$ conține suficiente muchii pentru a conservă conectivitatea nodurilor din $T$. 
+\par În concluzie, dacă $x$ și $y$ fac parte din aceeași componentă conexă în $G_\alpha$, atunci aparțin aceleiași componente conexe în $T_\alpha$.    
 \\
-\par $\mathbf{Implicatia}$ $\mathbf{inversa:}$
+\par $\mathbf{Implicația}$ $\mathbf{inversa:}$
 \\
-\par Ipoteza : $x$ si $y$ sunt conectate in $T_\alpha$
-\par Concluzie : $x$ si $y$ sunt conectate in $G_\alpha$
+\par Ipoteza : $x$ și $y$ sunt conectate în $T_\alpha$
+\par Concluzie : $x$ și $y$ sunt conectate în $G_\alpha$
 \\
-\par $T$ este un arbore partial al lui $G$, deci $T$ conecteaza toate nodurile din $G$ si este un subgraf al lui $G$. Fiindca $T_\alpha$ pastreaza doar muchiile din $T$ cu $c(e)\geq \alpha$, iar $G_\alpha$ contine toate muchiile cu aceasta proprietate, toate muchiile din $T_\alpha$ sunt incluse si in $G_\alpha$. Deoarece $T_\alpha$ este subarbore al lui $T$ si $G_\alpha$ este subgraf al lui $G$, toate conexiunile intre nodurile din $T_\alpha$ sunt valabile si in $G_\alpha$.
+\par $T$ este un arbore parțial al lui $G$, deci $T$ conectează toate nodurile din $G$ și este un subgraf al lui $G$. Fiindcă $T_\alpha$ păstrează doar muchiile din $T$ cu $c(e)\geq \alpha$, iar $G_\alpha$ conține toate muchiile cu această proprietate, toate muchiile din $T_\alpha$ sunt incluse și în $G_\alpha$. Deoarece $T_\alpha$ este subarbore al lui $T$ și $G_\alpha$ este subgraf al lui $G$, toate conexiunile între nodurile din $T_\alpha$ sunt valabile și în $G_\alpha$.
 \\
 }    
 
 \subsection*{\fontsize{16}{30}\selectfont Subpunctul c}
-{\fontsize{14}{16}\selectfont Initial vom folosi algoritmul lui Kruskal modificat de la subpunctul a$)$ pentru a construi arborele partial de cost maxim, $T$, din $G$, urmand sa parcurgem drumul de la $s$ la $t$ astfel:
+{\fontsize{14}{16}\selectfont Inițial vom folosi algoritmul lui Kruskal modificat de la subpunctul a$)$ pentru a construi arborele parțial de cost maxim, $T$, din $G$, urmând să parcurgem drumul de la $s$ la $t$ astfel:
     \\
     \par $vec \leftarrow \emptyset;$ 
     \par $for$  $((u,v)\in T)$ $do$
@@ -138,7 +138,7 @@ Prin definitie, $T$ este conex si contine un set de muchii care asigura conectiv
 
 }
 
-\section*{\fontsize{20}{50}\selectfont Problema 3 : Rusu Răzvan}
+\section*{\fontsize{20}{50}\selectfont Problema 3 : Popovici Mihail}
 \subsection*{\fontsize{16}{30}\selectfont Subpunctul a}
 {\fontsize{14}{16}\selectfont 
 
@@ -174,13 +174,17 @@ $\mathbf{Implicatia}$ $\mathbf{directa:}$
 \par Știm din ipoteză ca $G$ nu este tare conex, adică $G$ conține cel puțin două noduri $x$ și $y$ între care există arcul $xy$ și nu există niciun $yx$-drum. Considerăm mulțimile $A = \lbrace u : \exists uy$-drum în $ G\rbrace \cup \lbrace x \rbrace$ și $B = \lbrace v : \exists yv$-drum în $ G\rbrace \cup \lbrace y \rbrace$ (fiindcă $G$ este slab conex, știm că $A \cup B = V$ și $A \cap B = \emptyset$). În acest fel, vor exista doar arce de la $A$ la $B$ (printre care și $xy$) și niciun arc de la $B$ la $A$, adică $G$ conține măcar d-tăietura nevidă descrisă de mulțimile $A$ și $B$.
 
 \subsection*{\fontsize{16}{30}\selectfont Subpunctul b}
-Demonstrăm că (i) este echivalent cu (ii)
+Demonstrăm că (i) este echivalent cu (ii).
+
+Fiecare digraf $G$ slab-conex poate fi văzut ca o înlănțuire de componente tare-conexe. Drumurile dintre 2 componentele tare-conexe vor avea acelasi sens de parcurgere (altfel ar fi o singură componentă tare-conexă, nu două), condiție de formare de d-tăieturi. Pentru că se îndeplinește această condiție, toate arcele care formează acele drumuri vor fi incluse în d-tăieturi și implicit într-un d-separator. Prin contractare, lungimea drumurilor va scădea cu 1 la fiecare pas, până când componentele tare-conexe vor avea un nod în comun și vor deveni o singură componentă tare-conexă. Acest proces se repetă până când digraful va avea o singură componentă tare-conexă, deci acesta va fi tare-conex. În concluzie, contractarea tuturor arcelor din d-separator va conduce la formarea unui digraf tare-conex.
 
 Demonstrăm că (i) este echivalent cu (iii). 
 
 (i) $\rightarrow$ (iii): Prin definiție, o d-tăietură partiționează digraful în două submulțimi de noduri ($A$ și $B$) cu proprietatea că există $xy$-drumuri, dar niciun $yx$-drum ($x \in A, y \in B$). Am putea spune că d-tăieturile descriu partiționări ale digrafului în care parcurgerea se face într-un singur sens. Din faptul că $J$ este un d-separator rezultă că $J$ conține măcar o muchie din fiecare d-tăietură. Adăugarea arcelor inverse celor din $J$ ar permite parcurgerea în ambele sensuri între mulțimile oricărei partiționări ale digrafului, așadar, digraful ar deveni tare conex.
 
 (iii) $\rightarrow$ (i): Presupunem prin reducere la absurd că prin adăugarea tuturor arcelor inverse celor din $J$ la $G$ se obține un digraf tare conex, iar $J$ nu este un d-separator. Deoarece $J$ nu este un d-separator, înseamnă că $\exists F$ d-taietură a.î. $F \cap J = \emptyset$. Din asta, rezultă că bipartiția $(A, B)$, conectată de arcele din $F$ va conține $xy$-drumuri, dar niciun $yx$-drum ($x \in A, y \in B$), deci, $G$ nu este tare-conex.  Am ajuns la o contradicție, deci dacă prin adăugarea tuturor arcelor inverse celor din $J$ la $G$ se obține un digraf tare conex, atunci $J$ este un d-separator.
+
+Din faptul că (i) este echivalent cu (ii) și (i) este echivalent cu (iii), rezulta că (i) $\Leftrightarrow$ (ii) $\Leftrightarrow$ (iii).
 
 \subsection*{\fontsize{16}{30}\selectfont Subpunctul c}
 Fie $\mathcal{F}$ o familie de cardinal maxim (pe care îl notăm cu $p$) de d-tăieturi disjuncte două cate două. Prin definiție, un d-separator intersectează toate d-tăieturile digrafului, așadar d-separatorul va avea cardinalul minim egal cu $p$ (în cazul în care intersectează exact o singură muchie din fiecare d-tăietură din $\mathcal{F}$).
