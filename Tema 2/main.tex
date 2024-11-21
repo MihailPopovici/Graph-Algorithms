@@ -105,4 +105,33 @@ Prin definitie, $T$ este conex si contine un set de muchii care asigura conectiv
     \par Aceasta contrazice ipoteza ca $T$ este un arbore partial de cost minm al lui $G$. Prin urmare, $T|e$ trebuie sa fie un arbore partial de cost minim al lui $G|e$.
     }
 
+\section*{\fontsize{20}{50}\selectfont Problema 4}
+\subsection*{\fontsize{16}{30}\selectfont Subpunctul a}
+{\fontsize{14}{16}\selectfont
+$\mathbf{Implicatia}$ $\mathbf{directa:}$
+\\
+\par Ipoteza: $G$ are o d-tăietură nevidă
+\par Concluzia: $G$ nu este tare conex
+\\
+\par Știm din ipoteză ca $G$ are o d-taietură nevidă, deci există o submulțime de arce $F \subseteq E$ cu proprietatea că există o bipartiție $(A, B)$ a lui $V (A, B \neq \emptyset)$ așa încât $F = \lbrace uv, \in E : u \in A, v \in B\rbrace$ și $\lbrace vu, \in E : u \in A, v \in B \rbrace = \emptyset$. Deci, există cel puțin două noduri $x \in A$ și $y \in B$ cu arcul $xy$ și niciun alt arc din $B$ în $A$. Acest lucru permite parcurgerea din $x$ în $y$, dar nu și invers, deci $G$ nu este tare conex.
+\\
+\par $\mathbf{Implicatia}$ $\mathbf{inversa:}$
+\\
+\par Ipoteza: $G$ nu este tare conex
+\par Concluzia: $G$ are o d-tăietură nevidă
+\\
+\par Știm din ipoteză ca $G$ nu este tare conex, adică $G$ conține cel puțin două noduri $x$ și $y$ între care există arcul $xy$ și nu există niciun $yx$-drum. Considerăm mulțimile $A = \lbrace u : \exists uy$-drum în $ G\rbrace \cup \lbrace x \rbrace$ și $B = \lbrace v : \exists yv$-drum în $ G\rbrace \cup \lbrace y \rbrace$ (fiindcă $G$ este slab conex, știm că $A \cup B = V$ și $A \cap B = \emptyset$). În acest fel, vor exista doar arce de la $A$ la $B$ (printre care și $xy$) și niciun arc de la $B$ la $A$, adică $G$ conține măcar d-tăietura nevidă descrisă de mulțimile $A$ și $B$.
+
+\subsection*{\fontsize{16}{30}\selectfont Subpunctul b}
+Demonstrăm că (i) este echivalent cu (ii)
+
+Demonstrăm că (i) este echivalent cu (iii). 
+
+(i) $\rightarrow$ (iii): Prin definiție, o d-tăietură partiționează digraful în două submulțimi de noduri ($A$ și $B$) cu proprietatea că există $xy$-drumuri, dar niciun $yx$-drum ($x \in A, y \in B$). Am putea spune că d-tăieturile descriu partiționări ale digrafului în care parcurgerea se face într-un singur sens. Din faptul că $J$ este un d-separator rezultă că $J$ conține măcar o muchie din fiecare d-tăietură. Adăugarea arcelor inverse celor din $J$ ar permite parcurgerea în ambele sensuri între mulțimile oricărei partiționări ale digrafului, așadar, digraful ar deveni tare conex.
+
+(iii) $\rightarrow$ (i): Presupunem prin reducere la absurd că prin adăugarea tuturor arcelor inverse celor din $J$ la $G$ se obține un digraf tare conex, iar $J$ nu este un d-separator. Deoarece $J$ nu este un d-separator, înseamnă că $\exists F$ d-taietură a.î. $F \cap J = \emptyset$. Din asta, rezultă că bipartiția $(A, B)$, conectată de arcele din $F$ va conține $xy$-drumuri, dar niciun $yx$-drum ($x \in A, y \in B$), deci, $G$ nu este tare-conex.  Am ajuns la o contradicție, deci dacă prin adăugarea tuturor arcelor inverse celor din $J$ la $G$ se obține un digraf tare conex, atunci $J$ este un d-separator.
+
+\subsection*{\fontsize{16}{30}\selectfont Subpunctul c}
+Fie $\mathcal{F}$ o familie de cardinal maxim (pe care îl notăm cu $p$) de d-tăieturi disjuncte două cate două. Prin definiție, un d-separator intersectează toate d-tăieturile digrafului, așadar d-separatorul va avea cardinalul minim egal cu $p$ (în cazul în care intersectează exact o singură muchie din fiecare d-tăietură din $\mathcal{F}$).
+
 \end{document}
