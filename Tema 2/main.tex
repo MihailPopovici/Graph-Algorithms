@@ -51,17 +51,17 @@ $\mathbf{Implicatia}$ $\mathbf{directa: (=>)}$
 
 
 
-Demonstrația acestei implicații este similară cu demonstrația implicației directe la subpunctul a). $F^*$ se asigură că toate nodurile au gradul cel puțin 1, utilizand un număr minimal de muchii. Cuplajul $M^*$ poate fi obținut din acoperirea $F^*$ prin ștergerea muchiilor adiacente cu noduri cu gradul > 1, obtinandu-se în final cuplajul de cardinal maxim și maximal $M^*$. În concluzie, dacă $M^*$ este un cuplaj maximal de cardinal maxim, atunci $\exists$ $F^*$ acoperire cu muchii de cardinal minim, a.i. $M^*$ $\subseteq$ $F^*$. \\
+Demonstrația acestei implicații este similară cu demonstrația implicației directe la subpunctul a). $F^*$ se asigură că toate nodurile au gradul cel puțin 1, utilizand un număr minimal de muchii. Cuplajul $M^*$ poate fi obținut din acoperirea $F^*$ prin ștergerea muchiilor adiacente cu noduri cu gradul > 1, obtinandu-se în final cuplajul de cardinal maxim și maximal $M^*$. În concluzie, dacă $M^*$ este un cuplaj maximal de cardinal maxim, atunci $\exists$ $F^*$ acoperire cu muchii de cardinal minim, a.î. $M^*$ $\subseteq$ $F^*$. \\
 
 $\mathbf{Implicatia}$ $\mathbf{inversa: (<=)}$ 
 \\
-\par Ipoteză : $\exists$ $F^*$ acoperire cu muchii de cardinal minim, a.i. \\ $M^*$ $\subseteq$ $F^*$ 
+\par Ipoteză : $\exists$ $F^*$ acoperire cu muchii de cardinal minim, a.î. \\ $M^*$ $\subseteq$ $F^*$ 
 \par Concluzie : Un cuplaj maximal $M^*$ este de cardinal maxim
 \\
 
 Dacă $M^*$ este maximal, înseamnă că $M^*$ + $\lbrace$e$\rbrace$ nu mai este cuplaj, $\forall$ e $\in$ E(G). 
 
-Presupunem prin reducere la absurd că $M^*$ este maximal și $\exists$ $F^*$ acoperire cu muchii de cardinal minim, a.i.  $M^*$ $\subseteq$ $F^*$, dar $M^*$ nu este de cardinal maxim. Însă, la "=$>$" am demonstrat că dacă $M^{'}$ este de cadinal maxim, atunci $M^{'}$ $\subset$ $F^*$. Dar $M^*$ $\subset$ $F^*$, $M^*$ maximal și $\vert$$M^{'}$$\vert$ $>$ $\vert$$M^*$$\vert$ $\Rightarrow$ imposibil, deoarece $M^*$ + $\lbrace$e$\rbrace$ nu mai este cuplaj $\Rightarrow$ contradicție, deci daca $\exists$ $F^*$ acoperire cu muchii de cardinal minim, a.i.  $M^*$ $\subseteq$ $F^*$ atunci un cuplaj maximal $M^*$ este de cardinal maxim.
+Presupunem prin reducere la absurd că $M^*$ este maximal și $\exists$ $F^*$ acoperire cu muchii de cardinal minim, a.i.  $M^*$ $\subseteq$ $F^*$, dar $M^*$ nu este de cardinal maxim. Însă, la "=$>$" am demonstrat că dacă $M^{'}$ este de cadinal maxim, atunci $M^{'}$ $\subset$ $F^*$. Dar $M^*$ $\subset$ $F^*$, $M^*$ maximal și $\vert$$M^{'}$$\vert$ $>$ $\vert$$M^*$$\vert$ $\Rightarrow$ imposibil, deoarece $M^*$ + $\lbrace$e$\rbrace$ nu mai este cuplaj $\Rightarrow$ contradicție, deci daca $\exists$ $F^*$ acoperire cu muchii de cardinal minim, a.î.  $M^*$ $\subseteq$ $F^*$ atunci un cuplaj maximal $M^*$ este de cardinal maxim.
 
 \section*{\fontsize{20}{50}\selectfont Problema 2 : Rusu Răzvan}
 \subsection*{\fontsize{16}{30}\selectfont Subpunctul a}
@@ -147,13 +147,13 @@ Prin definiție, $T$ este conex și conține un set de muchii care asigură cone
 
 \subsection*{\fontsize{16}{30}\selectfont Subpunctul b}
 {\fontsize{14}{16}\selectfont 
-    Fie $T$ un arbore partial de cost minim al lui $G$, avand costul minim $c(T)$. Conform subpuctului $a$, prin contractarea muchiei e, obtinem $c(T|e) = c(T) - c(e)$.
-    Sa presupunem prin reducere la absurd ca $T|e$ $\mathbf{N} \mathbf{U}$ este un arbore partial de cost minim al lui $G|e$. Atunci ar exista un alt arbore partial $T'|e$ a lui $G|e$, cu $c(T'|e) < c(T|e)$.
-    \par Daca $T'|e$ este un arbore de cost mai mic în $G|e$, atunci putem extinde acest arbore n $G$ adaugand inapoi muchia $e$ pentru a obtine un arbore $T'$ al lui $G$. Costul acestui arbore $T'$ ar fi:
+    Fie $T$ un arbore parțial de cost minim al lui $G$, având costul minim $c(T)$. Conform subpuctului $a$, prin contractarea muchiei e, obținem $c(T|e) = c(T) - c(e)$.
+    Să presupunem prin reducere la absurd că $T|e$ $\mathbf{N} \mathbf{U}$ este un arbore parțial de cost minim al lui $G|e$. Atunci ar exista un alt arbore parțial $T'|e$ a lui $G|e$, cu $c(T'|e) < c(T|e)$.
+    \par Dacă $T'|e$ este un arbore de cost mai mic în $G|e$, atunci putem extinde acest arbore în $G$ adăugând înapoi muchia $e$ pentru a obține un arbore $T'$ al lui $G$. Costul acestui arbore $T'$ ar fi:
     \par \centerline { $c(T') = c(T'|e) + c(e)$ }
-    \par Deoarece $c(T'|e) < c(T|e)$, rezulta ca:
+    \par Deoarece $c(T'|e) < c(T|e)$, rezulta că:
     \par \centerline {$c(T'|e) < c(T|e) + c(e) = c(T) $}
-    \par Aceasta contrazice ipoteza ca $T$ este un arbore partial de cost minm al lui $G$. Prin urmare, $T|e$ trebuie sa fie un arbore partial de cost minim al lui $G|e$.
+    \par Aceasta contrazice ipoteza că $T$ este un arbore parțial de cost minm al lui $G$. Prin urmare, $T|e$ trebuie să fie un arbore parțial de cost minim al lui $G|e$.
     }
 
 \section*{\fontsize{20}{50}\selectfont Problema 4 : Petrovici Luca}
