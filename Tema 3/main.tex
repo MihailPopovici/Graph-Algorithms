@@ -13,4 +13,21 @@
 \maketitle
 
 \section*{\fontsize{20}{50}\selectfont Problema 1 : Popovici Mihail}
+
+{\fontsize{14}{16}\selectfont 
+$\mathbf{Implicatia}$ $\mathbf{directa: (=>)}$ 
+\par Dacă $G$ are cuplaj perfect, atunci $\alpha(G) = |G|/2$
+\\
+\par Un cuplaj perfect în $G$ este un cuplaj $M$ cu proprietatea $|M| = |G|/2$ (fiecare nod din $G$ este incident cu exact o muchie din cuplaj). Astfel, dacă $G$ are cuplaj perfect, fiecare nod al său este inclus în acest cuplaj. 
+\par Pe de altă parte, într-un graf bipartit, numărul total de noduri $|G|$ este suma nodurilor din cele 2 părți ale partiției ($|G| = |S| + |T|$, unde $S$ și $T$ sunt mulțimile disjuncte ale nodurilor).
+\par Având în vedere că $G$ are cuplaj perfect, fiecare muchie a acestui cuplaj formează o pereche, unul din nodurile perechii fiind din $S$, iar celălalt din $T$, deci numărul total de muchii în cuplaj este $|G|/2$.
+
+\bigskip
+$\mathbf{Implicatia}$ $\mathbf{inversa: (<=)}$ 
+\par Dacă $\alpha(G) = |G|/2$, atunci $G$ are un cuplaj perfect.
+\\
+
+\par Pornind de la ipoteză ($\alpha(G) = |G|/2$), înseamnă că avem un cuplaj maxim $M$ cu $|G|/2$ muchii, iar fiecare muchie din acest cuplaj acoperă noduri distincte. Deoarece $\alpha(G) = |G|/2$, acest cuplaj acoperă toate cele $|G|$ noduri $=>$ $M$ este cuplaj perfect, toate nodurile fiind acoperite de exact o muchie. 
+
+}
 \end{document}
