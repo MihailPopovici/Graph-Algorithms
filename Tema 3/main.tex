@@ -2,6 +2,7 @@
 \usepackage{graphicx} % Required for inserting images
 \usepackage{indentfirst}
 \usepackage{amssymb}
+\usepackage{amsmath}
 
 % Set page size and margins
 % Replace `letterpaper' with `a4paper' for UK/EU standard size
@@ -29,6 +30,59 @@ $\mathbf{Implicatia}$ $\mathbf{inversa: (<=)}$
 \\
 
 \par Pornind de la ipoteză ($\alpha(G) = |G|/2$), înseamnă că avem un cuplaj maxim $M$ cu $|G|/2$ muchii, iar fiecare muchie din acest cuplaj acoperă noduri distincte. Deoarece $\alpha(G) = |G|/2$, acest cuplaj acoperă toate cele $|G|$ noduri $=>$ $M$ este cuplaj perfect, toate nodurile fiind acoperite de exact o muchie. 
+
+}
+
+\section*{Exercițiul 2 : Rusu Răzvan}
+
+{\fontsize{14}{16}\selectfont 
+
+\subsection*{Subpunctul a)}
+
+Cunoaștem, din enunțul problemei, că \( c(p_i p_j) = +\infty \), oricare ar fi \( p_i, p_j \in F \). Este, de asemenea, menționat că tăietura \((S, T)\) are o capacitate finită, \( c(S, T) < +\infty \). 
+
+Asta înseamnă că, dacă un arc \( p_i p_j \in F \) ar traversa tăietura \((S, T)\), capacitatea tăieturii ar deveni infinită. Totuși, asta ar contrazice premisa că \( c(S, T) < +\infty \). Prin urmare, niciun astfel de arc nu poate traversa tăietura, ceea ce implică faptul că, dacă \( p_i \in S \), atunci și \( p_j \) trebuie să aparțină lui \( S \).
+
+\subsection*{Subpunctul b)}
+
+\textbf{Proiectele din \( P^+ \):}  
+Pentru fiecare \( p_i \in P^+ \), există un arc \( sp_i \) cu capacitate \( c(sp_i) = \sigma_i \). Dacă \( p_i \in S \), atunci profitul său contribuie la suma profitului total. Dacă \( p_i \notin S \), atunci acest arc \( sp_i \) contribuie la tăietura \( c(S, T) \).
+
+\textbf{Proiectele din \( P^- \):}  
+Pentru fiecare \( p_i \in P^- \), există un arc \( p_i t \) cu capacitate \( c(p_i t) = -\sigma_i \). Dacă \( p_i \in T \), atunci profitul negativ al proiectului contribuie la tăietura \( c(S, T) \).
+
+\textbf{Profitul total al proiectelor din \( S \setminus \{s\} \):}  
+Este suma profitului proiectelor din \( P^+ \) care se află în \( S \), minus pierderile asociate proiectelor din \( P^- \) care se află în \( S \). Acest profit total este:
+\[
+\text{Profit}(S \setminus \{s\}) = \sum_{p_i \in P^+} \sigma_i - c(S, T).
+\]
+
+\subsection*{Subpunctul c)}
+
+Problema poate fi rezolvată printr-un algoritm de flux maxim aplicat pe rețeaua \( R \).
+
+\textbf{Pașii algoritmului:}
+\begin{enumerate}
+    \item \textbf{Construcția grafului \( G \):}
+    \begin{itemize}
+        \item Adăugăm un nod sursă \( s \) și un nod destinație \( t \).
+        \item Pentru fiecare proiect \( p_i \in P^+ \), adăugăm un arc \( sp_i \) cu capacitate \( \sigma_i \).
+        \item Pentru fiecare proiect \( p_i \in P^- \), adăugăm un arc \( p_i t \) cu capacitate \( -\sigma_i \).
+        \item Pentru fiecare dependență \( p_i p_j \in F \), adăugăm un arc \( p_i p_j \) cu capacitate \( +\infty \).
+    \end{itemize}
+    
+    \item Folosim algoritmul Edmonds-Karp pentru a calcula fluxul maxim din \( s \) în \( t \).
+    
+    \item Identificăm tăietura minimă \((S, T)\) asociată fluxului maxim. Nodurile din \( S \setminus \{s\} \) reprezintă mulțimea \( Q \).
+    
+    \item Returnăm \( Q \), care conține toate proiectele dorite.
+\end{enumerate}
+
+\textbf{Complexitatea algoritmului:}
+\begin{itemize}
+    \item Construirea grafului: \( O(|P| + |F|) \),
+    \item Calcularea fluxului maxim (Edmonds-Karp): \( O(|V| \cdot |E|^2) \), unde \( V = |P| + 2 \) și \( E = |F| + |P| \).
+\end{itemize}
 
 }
 
