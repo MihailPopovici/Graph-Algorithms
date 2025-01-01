@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{graphicx} % Required for inserting images
 \usepackage{indentfirst}
+\usepackage{amssymb}
 
 % Set page size and margins
 % Replace `letterpaper' with `a4paper' for UK/EU standard size
@@ -57,6 +58,38 @@ $\mathbf{Implicatia\ indirecta\ (<=)}$ Daca G este un circuit impar indus, atunc
 Evident, dacă $G$ este un circuit impar indus, acesta va fi colorat cu 3 culori. De exemplu, pentru circuitul $1 - 2 - 3 - 1$, culorile vor fi alb - negru - gri - alb, adică 3, din cauza faptului că ultimul nod este adiacent cu primul. Astfel, este indeplinită prima condiție pentru un graf 3-minimal-cromatic. Dacă scoatem orice nod din circuitul indus, atunci vom obține un lanț de lungime pară, care poate fi colorat doar cu 2 culori, îndeplinind și cea de-a doua condiție pentru un graf 3-minimal-colorabil.
 
 În concluzie, dacă $G$ este un circuit impar indus, atunci este 3-minimal-cromatic.
+
+}
+
+\section*{\fontsize{20}{50}\selectfont Problema 4 : Petrovici Luca}
+
+{\fontsize{14}{16}\selectfont
+
+Pentru a arăta că \textbf{EDGE\_BIP} este NP-completă:
+
+\begin{enumerate}
+    \item Arătăm că EDGE\_BIP este în clasa NP, adică un candidat pentru a fi soluție a problemei poate fi verificat în timp polinomial. Acest lucru se poate realiza astfel:
+    \begin{enumerate}
+        \item adunăm ponderile muchiilor eliminate și comparăm cu $a$ (timp liniar, $O(n)$)
+        \item realizăm o parcurgere BFS sau DFS pentru a 2-colora graful ($O(|V| + |E|)$)
+    \end{enumerate}
+    În cazul în care acea sumă a ponderilor este mai mică sau egală cu $a$ și graful este 2-colorabil, înseamnă că după eliminarea muchiilor selectate a rămas un graf indus bipartit.
+    \item Reducem polinomial de la o altă problema NP-completă: MAXCUT $ \leqslant _p$ EDGE\_BIP
+    \par \textbf{MAXCUT} (cunoscută ca fiind NP-completă)
+    \par \textbf{Instanță:} $G = (V, E)$ un graf, $c : E \rightarrow \mathbb{R}$ o funcție de pondere și $k \in \mathbb{R}$.
+    \par \textbf{Întrebare:} există o tăietură în $G$ de pondere $\geq k$?
+    \par Considerăm datele unei instanțe MAXCUT și folosindu-ne de acestea vom construi datele unei instanțe EDGE\_BIP.
+    \begin{enumerate}
+        \item Graful $G$ rămâne nemodificat
+        \item Similar, funcția de pondere rămâne neschimbată
+        \item Definim $W = \sum_{e \in E} c(e)$. $a$ va fi $W - k$
+    \end{enumerate}
+    Vom elimina muchiile care \textbf{nu} aparțin tăieturii, pentru a obține un graf bipartit. Ponderea lor va fi ponderea totală din care se scade ponderea muchiilor din tăietură (care sunt acceptate în bipartiție).
+    \par Să presupunem că răspunsul la MAXCUT pentru instanța considerată este da. Astfel, există o tăietură de pondere minim $k$ în $G$. Muchiile care nu aparțin tăieturii vor avea ponderea $W - k$ adică $a$, deci prin eliminarea lor se obține un graf bipartit și se satisfac condițiile pentru EDGE\_BIP. Răspunsul pentru EDGE\_BIP la această instanță este și el da.
+    \par Să presupunem că răspunsul la MAXCUT pentru instanța considerată este nu. Astfel, nu există o tăietură de pondere minim $k$ în $G$, adică ar putea exista doar tăieturi de ponderi mai mici decăt $k$ ceea ce implică faptul că muchiile ce nu aparțin tăieturii vor avea pondere mai mare decât $a$ (din nou, din relația $W - k = a$). Răspunsul pentru EDGE\_BIP pentru instanța considerată este de asemenea nu.
+\end{enumerate}
+
+Prin urmare, din $1.$ si $2.$ rezultă că EDGE\_BIP este NP-completă.
 
 }
 
