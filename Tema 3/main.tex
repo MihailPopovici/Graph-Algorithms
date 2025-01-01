@@ -6,7 +6,7 @@
 % Replace `letterpaper' with `a4paper' for UK/EU standard size
 \usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 
-\title{Tema 2 - Algoritmica Grafurilor}
+\title{Tema 3 - Algoritmica Grafurilor}
 
 \author{Mihail Popovici, Luca Petrovici, Alexandru-Constantin Iov, George-Razvan Rusu}
 \begin{document}
@@ -30,4 +30,34 @@ $\mathbf{Implicatia}$ $\mathbf{inversa: (<=)}$
 \par Pornind de la ipoteză ($\alpha(G) = |G|/2$), înseamnă că avem un cuplaj maxim $M$ cu $|G|/2$ muchii, iar fiecare muchie din acest cuplaj acoperă noduri distincte. Deoarece $\alpha(G) = |G|/2$, acest cuplaj acoperă toate cele $|G|$ noduri $=>$ $M$ este cuplaj perfect, toate nodurile fiind acoperite de exact o muchie. 
 
 }
+
+\section*{\fontsize{20}{50}\selectfont Problema 3}
+
+{\fontsize{14}{16}\selectfont 
+Fie $G$ un graf cu $\chi(G) = p$.
+
+\bigskip
+a) Fie $G$ un graf cu $\chi(G) = p$. Dacă $G$ nu este deja $p$-minimal-cromatic, atunci, conform definiției, $\exists$ un nod $v$ astfel încât $\chi(G-v) = p$. Eliminăm, pe rând, toate aceste noduri până când ajungem la $H$, subgraf al lui $G$, pentru care nu $\exists$ $v$ astfel încât $\chi(H-v) = p \Rightarrow H$ este $p$-minimal-cromatic. În cazul în care $G$ este deja $p$-minimal-cromatic, demonstrația este evidentă.
+
+\bigskip
+b) Presupunem prin reducere la absurd că $\exists$ un nod $v \in G$ cu $d(v) < p-1$ și $G$ este $p$-minimal-cromatic. Dacă $d(v) = p-2$, acesta "forțează" $p-2$ noduri să aibă o colorare diferită de el. Dacă eliminăm nodul $v$ din $G$, atunci, conform definiției unui graf $p$-minimal-cromatic, $\chi(G-v) = p-1$. \par Vecinii fostului nod $v$ pot folosi cel mult $p-2$ culori (sunt $p-2$ vecini și avem la dispoziție $p-1$ culori, deci destule). Atunci când adăugăm înapoi nodul $v$ la graf, însă, acesta va putea fi colorat cu cea de-a $(p-1)$-a culoare. 
+\par De aici, va rezulta că $\chi(G) = p-1$. Observăm că am ajuns la o contradicție, deoarece $\chi(G)$ ar trebui să fie egal cu $p \Rightarrow G$ nu este $p$-minimal-cromatic. Prin contrazicerea presupunerii, dacă $\exists$ un nod $v \in G$ cu $d(v) < p-1$, $G$ nu este $p$-minimal-cromatic $\Rightarrow$ Daca G este p-minimal-cromatic, atunci $\delta$ (G) $\ge p - 1$.
+
+\bigskip
+c) $\mathbf{Implicatia\ directa\ (=>)}$ Dacă $G$ este $3$-minimal-cromatic atunci $G$ este un circuit impar indus.
+\par
+Mai întâi, pentru că $\chi(G) = 3$, $G$ trebuie să conțină cel puțin un circuit impar, întrucât acesta este unitatea de bază necesară pentru a $3$-colora un graf. Dacă nu ar conține unul, atunci graful ar fi bipartit, și ar putea fi colorat cu $2$ culori, deci $\chi(G) = 2$.
+\par
+Pentru a fi minimal, $\chi(G-v) = 2$, adică bipartit, $\forall v \in V(G)$. Din acest lucru, rezultă faptul că $G$ conține un singur circuit impar. Mai mult, acest circuit trebuie, la rândul său, să fie indus. Dacă circuitul nu ar fi indus, atunci ar exista riscul ca graful $G-v$ să conțină la rândul lui un alt circuit impar, deci ar fi tot $3$-colorabil, nu $2$-colorabil, lucru ce contrazice definiția unui graf $p$-minimal-colorabil. 
+\par
+În concluzie, dacă $G$ este $3$-minimal-cromatic, atunci $G$ este un circuit impar indus.
+
+$\mathbf{Implicatia\ indirecta\ (<=)}$ Daca G este un circuit impar indus, atunci este 3-minimal-cromatic.
+
+Evident, dacă $G$ este un circuit impar indus, acesta va fi colorat cu 3 culori. De exemplu, pentru circuitul $1 - 2 - 3 - 1$, culorile vor fi alb - negru - gri - alb, adică 3, din cauza faptului că ultimul nod este adiacent cu primul. Astfel, este indeplinită prima condiție pentru un graf 3-minimal-cromatic. Dacă scoatem orice nod din circuitul indus, atunci vom obține un lanț de lungime pară, care poate fi colorat doar cu 2 culori, îndeplinind și cea de-a doua condiție pentru un graf 3-minimal-colorabil.
+
+În concluzie, dacă $G$ este un circuit impar indus, atunci este 3-minimal-cromatic.
+
+}
+
 \end{document}
